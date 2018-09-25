@@ -1,0 +1,53 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+group = 'example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+// 依赖编写规范：starter在最上，spring官方依赖紧跟随，第三方依赖在最后
+// 按照所负责领域分组的依赖
+// Core {
+    runtime("org.springframework.boot:spring-boot-devtools")
+    compile("org.springframework.boot:spring-boot-starter-security")
+// }
+
+// Basic Web {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+// }
+
+// DataBase {
+    runtime("mysql:mysql-connector-java")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+// }
+
+// test {
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.security:spring-security-test")
+    // DataJpaTest使用的内存数据库
+    compile("com.h2database:h2")
+// }
+
+}

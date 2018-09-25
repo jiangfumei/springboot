@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Spring Boot Demo</title>
+<meta name="description" content="Spring Boot Demo" />
+<meta name="keywords" content="Spring Boot Demo" />
+<meta name="author" content="towen" />
+<!-- Favicon -->
+<link rel="shortcut icon" th:href="@{/common/img/favicon.ico}" />
+<link rel="icon" th:href="@{/common/img/favicon.ico}" type="image/x-icon" />
+<!-- Bootstrap CSS -->
+<link th:href="@{/vendors/bootstrap-4.0.0/css/bootstrap.min.css}" rel="stylesheet" type="text/css" />
+<!-- Custom CSS -->
+<link th:href="@{/css/login.css}" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="text-center">
+  <form class="form-signin" th:action="@{/admin/login}" method="post">
+    <h1 class="h3 mb-3 font-weight-normal">后台管理</h1>
+    <label for="inputEmail" class="sr-only">用户名</label>
+    <input type="text" name="username" id="inputEmail" class="form-control" placeholder="User name" required="required" autofocus="autofocus" />
+    <label for="inputPassword" class="sr-only">密码</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="required" />
+    <div class="checkbox mb-3">
+      <label>Remember me</label>
+      <input type="checkbox" value="remember-me" />
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+  </form>
+
+  <!-- JavaScript -->
+
+  <!-- jQuery -->
+  <script th:src="@{/vendors/jquery-3.3.1.min.js}"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script th:src="@{/vendors/bootstrap-4.0.0/js/bootstrap.min.js}"></script>
+  <!-- Init JavaScript -->
+  <script th:src="@{/js/common.js}"></script>
+
+</body>
+
+</html>
